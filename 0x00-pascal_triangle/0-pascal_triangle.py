@@ -3,6 +3,15 @@
 
 
 def pascal_triangle(n):
+    """
+    returns a list of lists of integers
+
+    Args:
+        n (int): parameter
+
+    Return:
+           returns a list of lists of integers
+    """
     if n <= 0:
         return []
     t = [[1]]

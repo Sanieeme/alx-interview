@@ -13,3 +13,15 @@ def canUnlockAll(boxes):
     Return:
          true or false
     """
+    def box(index):
+        if index in unlocked_boxes:
+            return
+        unlocked_boxes.add(index)
+        for key in boxes[index]:
+            if key < len(boxes):
+                box(key)
+
+    unlocked_boxes = set()
+    box(0)
+
+    return len(unlocked_boxes) == len(boxes)

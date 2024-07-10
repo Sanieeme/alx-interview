@@ -13,12 +13,12 @@ def minOperations(n: int) -> int:
     """
     if n <= 0:
         return 0
-    num = [float('inf')] * (n + 1)
-    num[1] = 0
+    i, j = 0, 2
 
-    for i in range(2, n + 1):
-        for j in range(1, i // 2 + 1):
-            if i % j == 0:
-                num[i] = min(num[i], num[j] + (i // j))
+    while n > 1:
+        while n % j == 0:
+            i += j
+            n //= j
+        j += 1
 
-    return num[n]
+    return i

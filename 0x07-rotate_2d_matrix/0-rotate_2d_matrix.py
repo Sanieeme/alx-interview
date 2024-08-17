@@ -1,9 +1,10 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """ """
 
 
 def rotate_2d_matrix(matrix):
-    """method that do not return anything"""
+    """method that do not return anything
+    """
     N = len(matrix)
     for n in range(0, int(N / 2)):
         for m in range(n, N- n - 1):

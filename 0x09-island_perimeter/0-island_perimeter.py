@@ -1,24 +1,19 @@
 #!/usr/bin/python3
-""" returns a list of lists of integers """
+"""returns the perimeter of the island"""
 
 
-def pascal_triangle(n):
-    """
-    returns a list of lists of integers
-
-    Args:
-        n (int): parameter
-
-    Return:
-           returns a list of lists of integers
-    """
-    if n <= 0:
-        return []
-    t = [[1]]
-    for i in range(1, n):
-        row = [1]
-        for j in range(1, i):
-            row.append(t[i-1][j-1] + t[i-1][j])
-        row.append(1)
-        t.append(row)
-    return t
+def island_perimeter(grid):
+  """returns the perimeter of the island
+     Args:
+         grid: a list
+  """
+  perimeter = 0
+  for i in range(len(grid)):
+      for j in range(len(grid[i])):
+          if grid[i][j] == 1:
+              perimeter += 4
+              if i > 0 and grid[i - 1][j] == 1:
+                  perimeter -= 2
+              if j > 0 and grid[i][j - 1] == 1:
+                  perimeter -= 2
+  return perimeter

@@ -1,26 +1,24 @@
 #!/usr/bin/python3
-""" function"""
+""" returns a list of lists of integers """
 
 
-def island_perimeter(grid):
-    """function that returns the perimeter of the island
+def pascal_triangle(n):
     """
-    if not grid or not grid[0]:
-        return 0
+    returns a list of lists of integers
 
-    peri = 0
-    row = len(grid)
-    col = len(grid[0])
+    Args:
+        n (int): parameter
 
-    for i in range(row):
-        for j in range(col):
-            if grid[i][j] == 1:
-                if i == 0 or grid[i-1][j] == 0:
-                    peri += 1
-                if i == row-1 or grid[i+1][j] == 0:
-                    peri += 1
-                if j == 0 or grid[i][j-1] == 0:
-                    peri += 1
-                if j == col-1 or grid[i][j+1] == 0:
-                    peri += 1
-    return peri
+    Return:
+           returns a list of lists of integers
+    """
+    if n <= 0:
+        return []
+    t = [[1]]
+    for i in range(1, n):
+        row = [1]
+        for j in range(1, i):
+            row.append(t[i-1][j-1] + t[i-1][j])
+        row.append(1)
+        t.append(row)
+    return t

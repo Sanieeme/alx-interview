@@ -8,6 +8,13 @@ import sys
 def is_safe(board, row, col):
     """
     Check if it's safe to place a queen at board[row][col].
+
+    Args:
+        board: board
+        row: rows
+        col: column
+
+    Returns: numbers
     """
     for i in range(row):
         if (
@@ -22,6 +29,12 @@ def is_safe(board, row, col):
 def solve_nqueens(n, row=0, board=None):
     """
     Solve the N-Queens problem using backtracking.
+
+    Args:
+        n: numberss
+        row: rows
+        board: boards
+    Returns: numbers
     """
     if board is None:
         board = []
@@ -38,6 +51,11 @@ def solve_nqueens(n, row=0, board=None):
 def nqueens(N):
     """
     Handle user input and validate it.
+
+    Args:
+        N: parameter
+
+    Returns: numbers
     """
     try:
         N = int(N)

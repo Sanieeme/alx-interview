@@ -4,6 +4,7 @@ Program that solves the N queens problem.
 """
 import sys
 
+
 def is_safe(board, row, col):
     """
     Check if it's safe to place a queen at board[row][col].
@@ -16,6 +17,7 @@ def is_safe(board, row, col):
         ):
             return False
     return True
+
 
 def solve_nqueens(n, row=0, board=None):
     """
@@ -32,6 +34,7 @@ def solve_nqueens(n, row=0, board=None):
         if is_safe(board, row, col):
             solve_nqueens(n, row + 1, board + [col])
 
+
 def nqueens(N):
     """
     Handle user input and validate it.
@@ -47,6 +50,7 @@ def nqueens(N):
         sys.exit(1)
 
     solve_nqueens(N)
+
 
 def main():
     """

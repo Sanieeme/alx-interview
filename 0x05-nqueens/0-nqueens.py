@@ -1,18 +1,29 @@
 #!/usr/bin/python3
-""" Program that solves the N queens problem. """
+"""
+Program that solves the N queens problem.
+"""
 import sys
 
 def is_safe(board, row, col):
-    """Check if it's safe to place a queen at board[row][col]"""
+    """
+    Check if it's safe to place a queen at board[row][col].
+    """
     for i in range(row):
-        if board[i] == col or \
-           board[i] - i == col - row or \
-           board[i] + i == col + row:
+        if (
+            board[i] == col
+            or board[i] - i == col - row
+            or board[i] + i == col + row
+        ):
             return False
     return True
 
-def solve_nqueens(n, row=0, board=[]):
-    """Solve the N-Queens problem using backtracking"""
+def solve_nqueens(n, row=0, board=None):
+    """
+    Solve the N-Queens problem using backtracking.
+    """
+    if board is None:
+        board = []
+
     if row == n:
         print([[i, board[i]] for i in range(n)])
         return
@@ -22,7 +33,9 @@ def solve_nqueens(n, row=0, board=[]):
             solve_nqueens(n, row + 1, board + [col])
 
 def nqueens(N):
-    """Handle user input and validate it"""
+    """
+    Handle user input and validate it.
+    """
     try:
         N = int(N)
     except ValueError:
@@ -36,7 +49,9 @@ def nqueens(N):
     solve_nqueens(N)
 
 def main():
-    """Main function to handle command-line arguments"""
+    """
+    Main function to handle command-line arguments.
+    """
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
         sys.exit(1)

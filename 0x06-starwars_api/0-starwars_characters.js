@@ -43,4 +43,3 @@ request(url, { json: true }, async (err, res, body) => {
     console.error('An error occurred:', error);
   }
 });
-

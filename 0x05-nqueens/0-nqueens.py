@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Program aims to solves the N queens problem. """
+""" Program that solves the N queens problem. """
 import sys
 
 def is_safe(board, row, col):
@@ -16,7 +16,7 @@ def solve_nqueens(n, row=0, board=[]):
     if row == n:
         print([[i, board[i]] for i in range(n)])
         return
-    
+
     for col in range(n):
         if is_safe(board, row, col):
             solve_nqueens(n, row + 1, board + [col])
@@ -26,13 +26,13 @@ def nqueens(N):
     try:
         N = int(N)
     except ValueError:
-        print("Usage: nqueens N")
+        print("N must be a number")
         sys.exit(1)
-    
+
     if N < 4:
         print("N must be at least 4")
         sys.exit(1)
-    
+
     solve_nqueens(N)
 
 def main():
@@ -40,8 +40,9 @@ def main():
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
         sys.exit(1)
-    
+
     nqueens(sys.argv[1])
+
 
 if __name__ == "__main__":
     main()
